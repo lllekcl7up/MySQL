@@ -23,3 +23,26 @@ SELECT city, COUNT(city) AS rating
 FROM Orders
 GROUP BY city
 HAVING rating > 0;
+
+# Задание 2
+# Отсортируйте поле “сумма” в порядке убывания и возрастания.
+SELECT * # убывание
+FROM db 
+ORDER BY sum DESC;
+
+SELECT * # возрастание
+FROM db 
+ORDER BY sum ;
+
+#Отсортируйте по возрастанию поле “Зарплата” и выведите 5 строк с наибольшей заработной платой
+SELECT * 
+FROM db 
+ORDER BY sallary 
+DESC LIMIT 5 AS sallary 
+ORDER BY sallary;
+
+# Выполните группировку всех сотрудников по специальности “рабочий”, зарплата которых превышает 20000
+select group_concat(surname separator ' ') 'Фамилии', specialty s, group_concat(salary separator ' ')
+from db
+where specialty = 'рабочий' and salary > 20000
+group by s;
